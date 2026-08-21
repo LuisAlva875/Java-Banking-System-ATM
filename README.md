@@ -1,11 +1,3 @@
-‎README.md‎
-+692
--2
-Lines changed: 692 additions & 2 deletions
-
-
-Original file line number	Diff line number	Diff line change
-@@ -1,2 +1,692 @@
 # Java-Banking-System-ATM
 Java banking system with customer accounts, savings and checking accounts, overdraft protection, file-based data loading, customer reports, and a Swing-based ATM interface.
 # ATM Banking System
