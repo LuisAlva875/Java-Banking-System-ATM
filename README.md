@@ -529,7 +529,7 @@ Show the initial authentication screen where the customer enters:
 File:
 
 ```text
-assets/images/atm_login.png
+assets/images/atm_login.jpg
 ```
 
 README usage:
