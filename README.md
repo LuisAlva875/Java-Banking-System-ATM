@@ -679,7 +679,7 @@ The main goals of this project are:
 
 ## Important Notes
 
-This project is an academic banking simulation.
+This project is an banking simulation.
 
 It is not intended to represent a production banking system or process real financial information.
 
@@ -689,4 +689,4 @@ The PIN and authentication mechanisms are implemented for educational purposes. 
 
 **Luis Alva**
 
-Java academic project focused on object-oriented programming, banking-domain modeling, exception handling, file processing, authentication, customer management, reporting, and graphical user interfaces.
+Java project focused on object-oriented programming, banking-domain modeling, exception handling, file processing, authentication, customer management, reporting, and graphical user interfaces.
