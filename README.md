@@ -532,7 +532,6 @@ File:
 assets/images/atm_login.jpg
 ```
 
-README usage:
 
 ![ATM Login](assets/images/atm_login.jpg)
 
@@ -549,7 +548,6 @@ File:
 assets/images/atm_menu.png
 ```
 
-README usage:
 
 ![ATM Main Menu](assets/images/atm_menu.png)
 
@@ -563,7 +561,6 @@ File:
 assets/images/atm_balance.png
 ```
 
-README usage:
 
 ![Balance Inquiry](assets/images/atm_balance.png)
 
@@ -577,7 +574,6 @@ File:
 assets/images/atm_deposit.png
 ```
 
-README usage:
 
 ![Deposit](assets/images/atm_deposit.png)
 
@@ -591,7 +587,6 @@ File:
 assets/images/atm_withdrawal.png
 ```
 
-README usage:
 
 ![Withdrawal](assets/images/atm_withdrawal.png)
 
@@ -605,7 +600,6 @@ File:
 assets/images/atm_invalid_pin.png
 ```
 
-README usage:
 
 ![Invalid PIN](assets/images/atm_invalid_pin.png)
 
@@ -620,7 +614,6 @@ File:
 assets/images/atm_invalid_customer.png
 ```
 
-README usage:
 
 ![Invalid Customer](assets/images/atm_invalid_customer.png)
 
@@ -634,7 +627,6 @@ File:
 assets/images/atm_session_end.png
 ```
 
-README usage:
 
 
 ![Session Termination](assets/images/atm_session_end.png)
@@ -650,7 +642,6 @@ File:
 assets/images/customer_report.png
 ```
 
-README usage:
 
 ![Customer Report](assets/images/customer_report.png)
 
