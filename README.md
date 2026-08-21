@@ -656,30 +656,6 @@ README usage:
 
 ---
 
-## Screenshot Organization
-
-The recommended repository structure for screenshots is:
-
-```text
-assets/
-└── images/
-    ├── atm_login.png
-    ├── atm_menu.png
-    ├── atm_balance.png
-    ├── atm_deposit.png
-    ├── atm_withdrawal.png
-    ├── atm_invalid_pin.png
-    ├── atm_invalid_customer.png
-    ├── atm_session_end.png
-    └── customer_report.png
-```
-
-The screenshots should be real captures of the application rather than manually recreated images.
-
-This allows the repository to demonstrate that the implemented functionality actually works.
-
----
-
 ## Concepts Practiced
 
 This project demonstrates several important Java programming concepts:
