@@ -1,134 +1,52 @@
-# Banking ATM System
+‎README.md‎
++692
+-2
+Lines changed: 692 additions & 2 deletions
 
-A Java-based ATM simulation that demonstrates object-oriented programming, account management, customer authentication, deposits, withdrawals, overdraft protection, customer registration, exception handling, data loading, and customer reporting.
 
-The project is organized into independent packages that separate the domain model, data loading, graphical interface, and reporting functionality.
-
----
-
-## Overview
-
-This project simulates a basic banking system with an ATM graphical interface.
-
-The application allows users to:
-
-* Authenticate using a customer ID and PIN.
-* Access their banking session.
-* Check account balances.
-* Make deposits.
-* Make withdrawals.
-* Handle checking-account overdraft protection.
-* End an ATM session.
-* Register new customers.
-* Validate customer information.
-* Prevent duplicate customer IDs.
-* Handle invalid customer IDs.
-* Handle invalid PINs.
-* Recover access when the customer forgets their PIN.
-* Load customers and accounts from a data file.
-* Generate a customer account report.
-
-The project also demonstrates several object-oriented programming concepts, including:
-
-* Encapsulation
-* Inheritance
-* Polymorphism
-* Exception handling
-* Static object management
-* Collections
-* File processing
-* GUI development with Swing
-
----
-
-## Features
-
-### Customer Authentication
-
-Customers must provide:
-
-1. Customer ID
-2. PIN
-
-The ATM validates the credentials before granting access to the banking operations.
-
-Invalid authentication attempts are handled through dedicated exceptions.
-
-### Account Operations
-
-Once authenticated, a customer can:
-
-* Check their balance.
-* Deposit money.
-* Withdraw money.
-* End their current session.
-
-The session-based design prevents the ATM from remaining permanently associated with the same customer.
-
-### Savings Accounts
-
-Savings accounts store:
-
-* Current balance
-* Interest rate
-
-The account inherits the basic functionality provided by `Account`.
-
-### Checking Accounts
-
-Checking accounts support:
-
-* Current balance
-* Overdraft protection
-* Withdrawals using available overdraft protection
-
-If the requested withdrawal exceeds the available funds and overdraft protection, an `OverdraftException` is generated.
-
-### Customer Registration
-
-The system can create new customers while validating:
-
-* Customer information
-* Customer ID
-* PIN
-* Duplicate customer IDs
-
-A customer cannot be registered using an ID that already exists.
-
-### PIN Recovery
-
-The system includes a recovery mechanism for customers who cannot access their accounts because they forgot their PIN.
-
-The recovery process allows the customer to regain access without manually modifying the data file.
-
-### Data Loading
-
-Customers and accounts are loaded from:
-
-```text
-input/BankData.txt
-```
-
-The data source validates the structure of the file and reports malformed data through `DataFormatException`.
-
-### Customer Reports
-
-The reporting module generates a console report containing:
-
-* Customer names
-* Account types
-* Account balances
-
----
-
+Original file line number	Diff line number	Diff line change
+@@ -1,2 +1,692 @@
+# Java-Banking-System-ATM
+Java banking system with customer accounts, savings and checking accounts, overdraft protection, file-based data loading, customer reports, and a Swing-based ATM interface.
+# ATM Banking System
+A Java-based banking and ATM simulation developed using object-oriented programming principles. The project implements customer management, bank accounts, deposits, withdrawals, overdraft protection, customer authentication through a PIN, session management, customer registration, PIN recovery, data loading from a text file, customer reports, and a graphical ATM interface built with Java Swing.
+## Description
+This project simulates the basic operation of an Automated Teller Machine (ATM) connected to a simple banking system.
+The application is organized into different packages according to their responsibilities:
+- `banking.domain` contains the main banking entities and business rules.
+- `banking.data` manages the loading of customer and account information.
+- `banking.gui` contains the graphical ATM interface.
+- `banking.reports` contains the customer reporting functionality.
+The system allows customers to:
+- Log in using a customer ID and PIN.
+- Check their account balance.
+- Make deposits.
+- Make withdrawals.
+- Use overdraft protection when available.
+- End their current ATM session.
+- Register new customers.
+- Validate customer IDs and prevent duplicates.
+- Recover or reset their PIN.
+- Load customers and accounts from a data file.
+- Generate a report containing customers and their accounts.
+The project also includes custom exception handling for invalid customers, invalid PINs, duplicate customers, invalid accounts, insufficient funds, and other invalid banking operations.
+## Technologies
+- Java
+- Java Swing
+- Object-Oriented Programming
+- Inheritance
+- Polymorphism
+- Encapsulation
+- Exception Handling
+- Collections
+- File I/O
+- `ArrayList`
+- `ListIterator`
+- `Scanner`
+- Singleton Pattern
 ## Project Structure
-
-The repository should follow this structure:
-
 ```text
-BankingATM/
-│
-├── README.md
+ATM-Banking-System/
 │
 ├── src/
 │   └── banking/
@@ -140,9 +58,8 @@ BankingATM/
 │       │   ├── Bank.java
 │       │   ├── CheckingAccount.java
 │       │   ├── Customer.java
-│       │   ├── CustomerNotFoundException.java
-│       │   ├── DataFormatException.java
 │       │   ├── DuplicateCustomerException.java
+│       │   ├── InvalidAccountException.java
 │       │   ├── InvalidCustomerException.java
 │       │   ├── InvalidPinException.java
 │       │   ├── OverdraftException.java
@@ -158,181 +75,171 @@ BankingATM/
 ├── input/
 │   └── BankData.txt
 │
-└── assets/
-    └── images/
-        ├── atm_login.png
-        ├── atm_main_menu.png
-        ├── atm_deposit.png
-        ├── atm_withdrawal.png
-        ├── atm_balance.png
-        ├── atm_session_end.png
-        ├── atm_pin_recovery.png
-        ├── atm_new_customer.png
-        ├── atm_invalid_customer.png
-        ├── atm_invalid_pin.png
-        ├── atm_duplicate_customer.png
-        ├── atm_overdraft.png
-        └── customer_report.png
+├── assets/
+│   └── images/
+│       ├── atm_login.png
+│       ├── atm_menu.png
+│       ├── atm_balance.png
+│       ├── atm_deposit.png
+│       ├── atm_withdrawal.png
+│       ├── atm_logout.png
+│       ├── atm_register.png
+│       ├── atm_pin_recovery.png
+│       └── customer_report.png
+│
+└── README.md
 ```
-
-> If the project is being maintained as a NetBeans project, the IDE-generated folders such as `build/`, `dist/`, `nbproject/`, and `manifest.mf` may also be present.
-
----
-
 ## Package Organization
-
 ### `banking.domain`
-
-This package contains the core banking model.
-
+This package contains the core classes that represent the banking system.
+Main classes:
+- `Bank`
+- `Customer`
+- `Account`
+- `SavingsAccount`
+- `CheckingAccount`
+- `OverdraftException`
+- Authentication and validation exceptions
+`Account` represents the base account behavior.
+`SavingsAccount` and `CheckingAccount` inherit from `Account` and provide specialized account functionality.
+`CheckingAccount` additionally supports overdraft protection.
+### `banking.data`
+This package contains the classes responsible for loading banking information from an external file.
+`DataSource` reads the contents of `BankData.txt` and creates the corresponding customers and accounts inside the bank.
+### `banking.gui`
+This package contains the graphical ATM application.
+`ATMClient` creates and manages the Swing interface used by customers to interact with the banking system.
+The interface handles authentication, banking operations, customer registration, PIN recovery, and session termination.
+### `banking.reports`
+This package contains the reporting functionality.
+`CustomerReport` generates a report containing the customers registered in the bank and the accounts associated with them.
+`TestReport` loads the data file and executes the report generation process.
+## Banking Model
+The project uses an object-oriented model to represent the relationship between the bank, customers, and accounts.
 ```text
-Account.java
-Bank.java
-CheckingAccount.java
-Customer.java
-CustomerNotFoundException.java
-DataFormatException.java
-DuplicateCustomerException.java
-InvalidCustomerException.java
-InvalidPinException.java
-OverdraftException.java
-SavingsAccount.java
+Bank
+ │
+ ├── Customer
+ │    │
+ │    ├── SavingsAccount
+ │    │
+ │    └── CheckingAccount
+ │
+ ├── Customer
+ │    │
+ │    └── CheckingAccount
+ │
+ └── Customer
+      │
+      ├── SavingsAccount
+      │
+      └── CheckingAccount
 ```
-
-#### `Account`
-
-Base class for banking accounts.
-
-It provides common operations such as:
-
-* Getting the balance
-* Depositing money
-* Withdrawing money
-
-#### `Bank`
-
-Represents the central bank object and manages the registered customers.
-
-The project uses a single `Bank` instance to coordinate customer information.
-
-#### `Customer`
-
-Represents a bank customer.
-
-A customer contains:
-
-* Customer identification information
-* First name
-* Last name
-* PIN
-* Associated accounts
-
-#### `CheckingAccount`
-
-Extends `Account` and adds overdraft protection functionality.
-
-#### `SavingsAccount`
-
-Extends `Account` and stores the account's interest rate.
-
-#### Exception Classes
-
-The project defines specific exceptions for different banking errors:
-
+The `Bank` maintains the registered customers.
+Each `Customer` can have one or more accounts.
+Each account derives from the common `Account` class.
+## ATM Authentication
+The ATM requires the customer to authenticate before accessing banking operations.
+The authentication flow is:
 ```text
-CustomerNotFoundException
-DataFormatException
-DuplicateCustomerException
-InvalidCustomerException
-InvalidPinException
+Start
+  |
+  v
+Enter Customer ID
+  |
+  v
+Validate Customer
+  |
+  +---- Invalid ----> Access Denied
+  |
+  v
+Enter PIN
+  |
+  v
+Validate PIN
+  |
+  +---- Invalid ----> Access Denied
+  |
+  v
+ATM Main Menu
+```
+This prevents unauthorized access to customer accounts.
+## PIN Management
+The ATM uses a PIN as part of the customer authentication process.
+Customers must provide the correct PIN before accessing their banking operations.
+The system also includes a PIN recovery mechanism for situations in which the customer loses access to their account because they no longer remember their PIN.
+The recovery process validates the customer information and allows the PIN to be recovered or reset according to the implemented application rules.
+## ATM Operations
+Once authentication is successful, the customer can access the ATM operations.
+### Balance Inquiry
+The customer can select the balance option to view the current balance of the account.
+Example:
+```text
+Current balance: $1,000.00
+```
+### Deposit
+The customer can enter an amount to deposit.
+The system validates the amount and updates the account balance.
+### Withdrawal
+The customer can request a withdrawal.
+The system checks whether the requested amount can be covered by the account balance.
+For checking accounts, overdraft protection can also be considered when available.
+### Overdraft Protection
+Checking accounts can have an overdraft protection amount.
+When the account balance is insufficient but the overdraft protection can cover the remaining amount, the transaction can be completed using the available protection.
+If neither the account balance nor the overdraft protection is sufficient, an `OverdraftException` is generated.
+### End Session
+The ATM allows the customer to terminate the current session.
+This is important because an authenticated account should not remain permanently accessible.
+After ending the session, the application returns to the authentication stage.
+## Customer Registration
+The system supports the creation of new customers.
+During registration, the system validates the customer identifier to prevent duplicate customers.
+If the requested customer ID is already registered, a `DuplicateCustomerException` is used to reject the operation.
+This helps maintain unique customer records within the banking system.
+## PIN Recovery
+The application provides a recovery mechanism for customers who forget their PIN.
+The recovery process is intended to prevent the customer from becoming permanently locked out of the ATM.
+The system validates the required customer information before allowing the PIN to be recovered or changed.
+## Exception Handling
+Custom exceptions are used to represent specific error conditions.
+Examples include:
+- `DuplicateCustomerException`
+- `InvalidCustomerException`
+- `InvalidPinException`
+- `InvalidAccountException`
+- `OverdraftException`
+The exception handling system allows the application to provide meaningful feedback instead of failing unexpectedly.
+Examples of situations handled include:
+```text
+Invalid customer
+        |
+        v
+Access denied
+Invalid PIN
+        |
+        v
+Authentication rejected
+Duplicate customer ID
+        |
+        v
+Registration rejected
+Insufficient funds
+        |
+        v
+Withdrawal rejected
+Insufficient funds + insufficient overdraft
+        |
+        v
 OverdraftException
 ```
-
-Using individual exception types makes the application easier to maintain and allows different error conditions to be handled independently.
-
----
-
-## `banking.data`
-
-This package contains:
-
-```text
-DataSource.java
-```
-
-`DataSource` is responsible for reading the customer and account information from the external data file.
-
-The default data file is:
-
-```text
-input/BankData.txt
-```
-
-The data source creates the corresponding customers and accounts inside the `Bank` object.
-
----
-
-## `banking.gui`
-
-This package contains:
-
-```text
-ATMClient.java
-```
-
-`ATMClient` provides the graphical ATM interface using Java Swing.
-
-The interface allows the user to interact with the banking system without directly manipulating the domain classes.
-
-The ATM provides operations such as:
-
-```text
-Customer authentication
-        ↓
-Main banking menu
-        ↓
- ┌───────────────┐
- │ Check balance │
- │ Deposit       │
- │ Withdraw      │
- │ End session   │
- └───────────────┘
-```
-
-Additional functionality is provided for:
-
-* New customer registration
-* PIN recovery
-* Authentication errors
-* Invalid operations
-
----
-
-## `banking.reports`
-
-This package contains:
-
-```text
-CustomerReport.java
-TestReport.java
-```
-
-`CustomerReport` generates a report containing the registered customers and their accounts.
-
-`TestReport` loads the bank data and executes the reporting process.
-
----
-
 ## Input Data
-
-The application uses:
-
+The banking information is stored in:
 ```text
 input/BankData.txt
 ```
-
-A sample data file can follow this structure:
-
+The file contains the customer and account information loaded by `DataSource`.
+A basic example of the original banking data format is:
 ```text
 4
 Jane Simms 2
@@ -346,463 +253,246 @@ C 200.00 0.00
 Maria Soley 1
 S 150.00 0.05
 ```
-
 The first value represents the number of customers.
-
 Each customer contains:
-
 ```text
 FirstName LastName NumberOfAccounts
 ```
-
 Savings accounts use:
-
 ```text
 S Balance InterestRate
 ```
-
 Checking accounts use:
-
 ```text
 C Balance OverdraftProtection
 ```
-
-If the final implementation stores customer IDs and PINs directly in the data file, the corresponding format must be used consistently with the current `DataSource.java`.
-
----
-
-## Running the Application
-
-### Running the ATM
-
-The main application is:
-
+The current application may also require authentication information such as a customer ID and PIN depending on the implemented version of `Customer` and `DataSource`.
+The important requirement is that `BankData.txt` must follow exactly the format expected by the current `DataSource` implementation.
+## Running the Project
+### Using NetBeans
+1. Open the project in NetBeans.
+2. Verify that `BankData.txt` exists inside the `input` directory.
+3. Build the project.
+4. Configure the main class as:
 ```text
 banking.gui.ATMClient
 ```
-
-When running from the command line, the data file path must be provided:
-
+5. Configure the program argument to point to:
+```text
+input/BankData.txt
+```
+6. Run the project.
+The application should load the banking data and open the ATM interface.
+### Running the ATM from the Command Line
+From the compiled project environment, the ATM can be executed using:
 ```bash
 java banking.gui.ATMClient input/BankData.txt
 ```
-
-In NetBeans, the easiest approach is to configure:
-
-```text
-Run → Set Project Configuration → Customize
-```
-
-and provide:
-
-```text
-input/BankData.txt
-```
-
-as the program argument for `ATMClient`.
-
-If the program is executed without the required argument, it displays:
-
-```text
-Usage: java banking.gui.ATMClient <dataFilePath>
-```
-
----
-
-## Running the Customer Report
-
-The report application is:
-
-```text
-banking.reports.TestReport
-```
-
-It also requires the path to the bank data file.
-
-Example:
-
+The exact command can vary depending on the Java compilation directory and classpath configuration.
+### Running the Customer Report
+The report can be executed using:
 ```bash
 java banking.reports.TestReport input/BankData.txt
 ```
-
-The report displays the registered customers and their account information in the console.
-
----
-
-## ATM Screenshots
-
-The project includes screenshots documenting the main functionality of the application.
-
+The report reads the same banking data file used by the ATM.
+## Application Workflow
+The complete application workflow can be summarized as follows:
+```text
+                 +----------------------+
+                 |        START         |
+                 +----------+-----------+
+                            |
+                            v
+                 +----------------------+
+                 | Load BankData.txt    |
+                 +----------+-----------+
+                            |
+                            v
+                 +----------------------+
+                 |    ATM Login         |
+                 +----------+-----------+
+                            |
+              +-------------+-------------+
+              |                           |
+              v                           v
+       Register Customer           Recover PIN
+              |                           |
+              +-------------+-------------+
+                            |
+                            v
+                 +----------------------+
+                 | Enter Customer ID     |
+                 +----------+-----------+
+                            |
+                            v
+                 +----------------------+
+                 | Enter PIN             |
+                 +----------+-----------+
+                            |
+                 +----------+----------+
+                 |                     |
+              Invalid                 Valid
+                 |                     |
+                 v                     v
+          Access Denied         ATM Main Menu
+                                       |
+                  +--------------------+--------------------+
+                  |                    |                    |
+                  v                    v                    v
+                Balance             Deposit             Withdrawal
+                  |                    |                    |
+                  +--------------------+--------------------+
+                                       |
+                                       v
+                                End Session
+                                       |
+                                       v
+                                  ATM Login
+```
+## Customer Report
+The reporting component generates information about the customers and their accounts.
+A typical report follows this structure:
+```text
+            CUSTOMER REPORT
+            ===============
+Customer: Simms, Jane
+    Savings Account: balance ...
+    Checking Account: balance ...
+Customer: Bryant, Owen
+    Checking Account: balance ...
+Customer: Soley, Tim
+    Savings Account: balance ...
+    Checking Account: balance ...
+Customer: Soley, Maria
+    Savings Account: balance ...
+```
+The report identifies each customer and the accounts associated with them.
+## Screenshots
+The repository includes screenshots demonstrating the main functionality of the application.
 All screenshots should be stored inside:
-
 ```text
 assets/images/
 ```
-
-and referenced from the README using relative paths.
-
+The README references them using relative paths so GitHub can display them automatically.
+The final screenshot directory should contain:
+```text
+assets/
+└── images/
+    ├── atm_login.png
+    ├── atm_menu.png
+    ├── atm_balance.png
+    ├── atm_deposit.png
+    ├── atm_withdrawal.png
+    ├── atm_logout.png
+    ├── atm_register.png
+    ├── atm_pin_recovery.png
+    └── customer_report.png
+```
 ### ATM Login
-
-Shows the initial customer authentication screen.
-
+This screenshot shows the initial ATM authentication screen where the customer enters their identification information.
 ![ATM Login](assets/images/atm_login.png)
-
-### Main ATM Menu
-
-Shows the main menu after successful authentication.
-
-![ATM Main Menu](assets/images/atm_main_menu.png)
-
+### ATM Main Menu
+This screenshot shows the main ATM menu after the customer successfully authenticates.
+![ATM Main Menu](assets/images/atm_menu.png)
 ### Balance Inquiry
-
-Shows the balance inquiry operation.
-
+This screenshot demonstrates a successful balance inquiry.
 ![ATM Balance](assets/images/atm_balance.png)
-
 ### Deposit
-
-Shows a successful deposit operation.
-
+This screenshot demonstrates a deposit operation.
 ![ATM Deposit](assets/images/atm_deposit.png)
-
 ### Withdrawal
-
-Shows a successful withdrawal operation.
-
+This screenshot demonstrates a withdrawal operation.
 ![ATM Withdrawal](assets/images/atm_withdrawal.png)
-
 ### End Session
-
-Shows the option used to terminate the current customer's ATM session.
-
-![ATM Session End](assets/images/atm_session_end.png)
-
+This screenshot demonstrates the process of ending an authenticated ATM session.
+![ATM Logout](assets/images/atm_logout.png)
+### Customer Registration
+This screenshot demonstrates the customer registration functionality.
+![Customer Registration](assets/images/atm_register.png)
 ### PIN Recovery
-
-Shows the PIN recovery functionality.
-
-![ATM PIN Recovery](assets/images/atm_pin_recovery.png)
-
-### New Customer
-
-Shows the customer registration process.
-
-![New Customer](assets/images/atm_new_customer.png)
-
-### Invalid Customer
-
-Shows the error generated when an unknown customer ID is entered.
-
-![Invalid Customer](assets/images/atm_invalid_customer.png)
-
-### Invalid PIN
-
-Shows the authentication error when an incorrect PIN is entered.
-
-![Invalid PIN](assets/images/atm_invalid_pin.png)
-
-### Duplicate Customer
-
-Shows the validation that prevents registering an existing customer ID.
-
-![Duplicate Customer](assets/images/atm_duplicate_customer.png)
-
-### Overdraft Protection
-
-Shows the checking-account overdraft behavior.
-
-![Overdraft Protection](assets/images/atm_overdraft.png)
-
+This screenshot demonstrates the PIN recovery functionality.
+![PIN Recovery](assets/images/atm_pin_recovery.png)
 ### Customer Report
-
-Shows the console output generated by the customer report.
-
+This screenshot demonstrates the generated customer report.
 ![Customer Report](assets/images/customer_report.png)
-
----
-
-## Recommended Screenshots
-
-For the GitHub repository, the most important screenshots are:
-
-1. `atm_login.png`
-2. `atm_main_menu.png`
-3. `atm_balance.png`
-4. `atm_deposit.png`
-5. `atm_withdrawal.png`
-6. `atm_session_end.png`
-7. `atm_pin_recovery.png`
-8. `atm_new_customer.png`
-9. `atm_invalid_customer.png`
-10. `atm_invalid_pin.png`
-11. `atm_duplicate_customer.png`
-12. `atm_overdraft.png`
-13. `customer_report.png`
-
-The screenshots do not need to show every internal implementation detail. They should demonstrate the application's visible functionality and error handling.
-
----
-
-## Exception Handling
-
-The application uses dedicated exceptions to represent different error conditions.
-
-### `CustomerNotFoundException`
-
-Used when the requested customer cannot be found.
-
-### `InvalidCustomerException`
-
-Used when customer information does not satisfy the application's validation rules.
-
-### `DuplicateCustomerException`
-
-Used when attempting to register a customer using an existing customer ID.
-
-### `InvalidPinException`
-
-Used when the PIN provided during authentication is incorrect or invalid.
-
-### `DataFormatException`
-
-Used when the bank data file does not follow the expected format.
-
-### `OverdraftException`
-
-Used when an account does not have sufficient funds, including cases where overdraft protection is insufficient.
-
----
-
-## Banking Workflow
-
-The general ATM workflow is:
-
-```text
-Start ATM
-   │
-   ▼
-Load BankData.txt
-   │
-   ▼
-Display authentication
-   │
-   ├── Invalid customer ──► Error
-   │
-   ├── Invalid PIN ───────► Error / Recovery
-   │
-   ▼
-Authenticated customer
-   │
-   ▼
-Main menu
-   │
-   ├── Balance
-   │
-   ├── Deposit
-   │
-   ├── Withdrawal
-   │
-   └── End session
-            │
-            ▼
-       Return to login
+## Object-Oriented Programming Concepts
+This project demonstrates several object-oriented programming concepts.
+### Encapsulation
+Customer, account, and banking information are managed through classes and methods that control access to the internal data.
+### Inheritance
+`SavingsAccount` and `CheckingAccount` inherit from the base `Account` class.
+```java
+public class SavingsAccount extends Account
 ```
-
-Ending a session does not terminate the entire ATM application. It returns the system to the authentication screen so another customer can use the ATM.
-
----
-
-## Object-Oriented Design
-
-The project demonstrates inheritance through the account hierarchy:
-
-```text
-              Account
-              /     \
-             /       \
-            ▼         ▼
-    SavingsAccount   CheckingAccount
+and:
+```java
+public class CheckingAccount extends Account
 ```
-
-`Account` contains functionality shared by both account types.
-
-`SavingsAccount` adds savings-specific information such as the interest rate.
-
-`CheckingAccount` adds overdraft protection.
-
-The `Bank` manages `Customer` objects, while each `Customer` can own multiple `Account` objects.
-
----
-
-## Technologies
-
-* Java
-* Java Swing
-* Object-Oriented Programming
-* Java Collections
-* Java Exceptions
-* File I/O
-* NetBeans IDE
-
----
-
-## Requirements
-
-To run the project, you need:
-
-* Java JDK
-* NetBeans IDE or another Java IDE
-* A properly configured `BankData.txt` file
-
-The project does not require external libraries.
-
----
-
-## NetBeans Configuration
-
-When using NetBeans, make sure the project contains the following source packages:
-
-```text
-banking.data
-banking.domain
-banking.gui
-banking.reports
+This allows both account types to reuse common account functionality.
+### Polymorphism
+The application can handle different account types through the common `Account` reference.
+For example:
+```java
+Account account;
 ```
-
-The input directory should be located at the project root:
-
-```text
-BankingATM/
-├── input/
-│   └── BankData.txt
-└── src/
-    └── banking/
+can reference either a `SavingsAccount` or a `CheckingAccount`.
+### Exception Handling
+Custom exceptions are used to represent invalid operations and make the program more robust.
+### Collections
+`ArrayList` is used to store customers and accounts.
+Iterators are used to traverse these collections when generating reports and processing banking information.
+### Singleton Pattern
+The `Bank` class maintains a single shared instance through:
+```java
+Bank.getBank();
 ```
-
-For `ATMClient`, configure the program argument:
-
-```text
-input/BankData.txt
-```
-
-For `TestReport`, use the same argument:
-
-```text
-input/BankData.txt
-```
-
-This prevents the application from starting without knowing where the bank data is located.
-
----
-
-## Example ATM Operations
-
-A typical session can look like:
-
-```text
-Customer ID: 1001
-PIN: ****
-
-Welcome customer.
-
-1. Balance
-2. Deposit
-3. Withdraw
-4. End Session
-```
-
-For a deposit:
-
-```text
-Deposit amount: 500
-
-Deposit accepted.
-```
-
-For a withdrawal:
-
-```text
-Withdrawal amount: 200
-
-Withdrawal accepted.
-```
-
-For an invalid PIN:
-
-```text
-Invalid PIN.
-```
-
-For an unknown customer:
-
-```text
-Customer not found.
-```
-
----
-
+This allows the application to work with the same bank object throughout its execution.
+## Validation
+The system validates several situations that can occur during normal operation:
+- Customer ID does not exist.
+- PIN is incorrect.
+- Customer ID is already registered.
+- Account does not exist.
+- Deposit amount is invalid.
+- Withdrawal amount is invalid.
+- Account balance is insufficient.
+- Overdraft protection is insufficient.
+- Data file cannot be found.
+- Data file contains invalid information.
+- Required program arguments are missing.
+- ATM session is terminated correctly.
+## Main Classes
+| Class | Responsibility |
+|---|---|
+| `Bank` | Maintains the registered customers |
+| `Customer` | Represents a customer and their accounts |
+| `Account` | Base class for bank accounts |
+| `SavingsAccount` | Represents a savings account |
+| `CheckingAccount` | Represents a checking account with overdraft protection |
+| `OverdraftException` | Handles insufficient-funds situations |
+| `DataSource` | Loads banking data from the input file |
+| `ATMClient` | Provides the graphical ATM interface |
+| `CustomerReport` | Generates the customer report |
+| `TestReport` | Executes the report generation |
 ## Project Goals
-
-The main goals of this project are to demonstrate:
-
-* Object-oriented software design.
-* Class relationships.
-* Inheritance.
-* Exception handling.
-* File-based data persistence.
-* GUI development.
-* Customer authentication.
-* Account operations.
-* Validation.
-* Error recovery.
-* Separation of concerns.
-
----
-
-## Repository Organization
-
-The final repository should keep application source code, input data, and documentation resources separated:
-
-```text
-BankingATM/
-│
-├── src/
-│   └── banking/
-│       ├── data/
-│       ├── domain/
-│       ├── gui/
-│       └── reports/
-│
-├── input/
-│   └── BankData.txt
-│
-├── assets/
-│   └── images/
-│       ├── atm_login.png
-│       ├── atm_main_menu.png
-│       ├── atm_balance.png
-│       ├── atm_deposit.png
-│       ├── atm_withdrawal.png
-│       ├── atm_session_end.png
-│       ├── atm_pin_recovery.png
-│       ├── atm_new_customer.png
-│       ├── atm_invalid_customer.png
-│       ├── atm_invalid_pin.png
-│       ├── atm_duplicate_customer.png
-│       ├── atm_overdraft.png
-│       └── customer_report.png
-│
-└── README.md
-```
-
----
-
-## Notes
-
-The `BankData.txt` file is an essential part of the application because it provides the initial customer and account information.
-
-The path used to execute the application must point to this file.
-
-Screenshots are stored separately under `assets/images/` so that the README remains organized and GitHub can render them using relative paths.
-
-The project is intended as an educational Java application demonstrating banking-domain modeling, GUI interaction, file processing, authentication, validation, exception handling, and reporting.
+The main goals of this project are:
+1. Practice object-oriented programming in Java.
+2. Implement inheritance and polymorphism.
+3. Work with Java collections.
+4. Implement custom exception handling.
+5. Process structured information from external files.
+6. Build a graphical interface using Java Swing.
+7. Simulate a real-world banking workflow.
+8. Implement customer authentication.
+9. Manage ATM sessions correctly.
+10. Implement customer registration.
+11. Implement PIN recovery.
+12. Validate customer and account operations.
+13. Generate reports from banking data.
+## Important Notes
+This project is an academic banking simulation.
+It is not intended to represent a production banking system or process real financial information.
+The PIN and authentication mechanisms are implemented for educational purposes. A production banking application would require stronger security measures such as encrypted credential storage, secure authentication protocols, multi-factor authentication, database persistence, secure session management, audit logging, and additional protection against unauthorized access.
+## Author
+**Luis Alva**
+Java academic project focused on object-oriented programming, banking-domain modeling, exception handling, file processing, authentication, customer management, reporting, and graphical user interfaces.
