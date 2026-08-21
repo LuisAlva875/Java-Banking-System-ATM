@@ -535,7 +535,7 @@ assets/images/atm_login.jpg
 README usage:
 
 ```markdown
-![ATM Login](assets/images/atm_login.png)
+![ATM Login](assets/images/atm_login.jpg)
 ```
 
 ### 2. ATM Main Menu
