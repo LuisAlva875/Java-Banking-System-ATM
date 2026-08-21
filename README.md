@@ -680,50 +680,6 @@ This allows the repository to demonstrate that the implemented functionality act
 
 ---
 
-## Recommended README Screenshot Section
-
-After adding the images to the repository, the screenshots can be displayed together using:
-
-## Screenshots
-
-### ATM Login
-
-![ATM Login](assets/images/atm_login.png)
-
-### ATM Main Menu
-
-![ATM Main Menu](assets/images/atm_menu.png)
-
-### Balance Inquiry
-
-![Balance Inquiry](assets/images/atm_balance.png)
-
-### Deposit
-
-![Deposit](assets/images/atm_deposit.png)
-
-### Withdrawal
-
-![Withdrawal](assets/images/atm_withdrawal.png)
-
-### Invalid PIN
-
-![Invalid PIN](assets/images/atm_invalid_pin.png)
-
-### Invalid Customer
-
-![Invalid Customer](assets/images/atm_invalid_customer.png)
-
-### Session Termination
-
-![Session Termination](assets/images/atm_session_end.png)
-
-### Customer Report
-
-![Customer Report](assets/images/customer_report.png)
-
----
-
 ## Concepts Practiced
 
 This project demonstrates several important Java programming concepts:
