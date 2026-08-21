@@ -534,9 +534,8 @@ assets/images/atm_login.jpg
 
 README usage:
 
-```markdown
 ![ATM Login](assets/images/atm_login.jpg)
-```
+
 
 ### 2. ATM Main Menu
 
@@ -552,9 +551,7 @@ assets/images/atm_menu.png
 
 README usage:
 
-```markdown
 ![ATM Main Menu](assets/images/atm_menu.png)
-```
 
 ### 3. Balance Inquiry
 
@@ -568,9 +565,7 @@ assets/images/atm_balance.png
 
 README usage:
 
-```markdown
 ![Balance Inquiry](assets/images/atm_balance.png)
-```
 
 ### 4. Deposit
 
@@ -584,9 +579,7 @@ assets/images/atm_deposit.png
 
 README usage:
 
-```markdown
 ![Deposit](assets/images/atm_deposit.png)
-```
 
 ### 5. Withdrawal
 
@@ -600,9 +593,7 @@ assets/images/atm_withdrawal.png
 
 README usage:
 
-```markdown
 ![Withdrawal](assets/images/atm_withdrawal.png)
-```
 
 ### 6. Invalid PIN
 
@@ -616,9 +607,8 @@ assets/images/atm_invalid_pin.png
 
 README usage:
 
-```markdown
 ![Invalid PIN](assets/images/atm_invalid_pin.png)
-```
+
 
 ### 7. Invalid Customer
 
@@ -632,9 +622,7 @@ assets/images/atm_invalid_customer.png
 
 README usage:
 
-```markdown
 ![Invalid Customer](assets/images/atm_invalid_customer.png)
-```
 
 ### 8. Session Termination
 
@@ -648,9 +636,9 @@ assets/images/atm_session_end.png
 
 README usage:
 
-```markdown
+
 ![Session Termination](assets/images/atm_session_end.png)
-```
+
 
 ### 9. Customer Report
 
@@ -664,9 +652,7 @@ assets/images/customer_report.png
 
 README usage:
 
-```markdown
 ![Customer Report](assets/images/customer_report.png)
-```
 
 ---
 
@@ -698,7 +684,6 @@ This allows the repository to demonstrate that the implemented functionality act
 
 After adding the images to the repository, the screenshots can be displayed together using:
 
-```markdown
 ## Screenshots
 
 ### ATM Login
@@ -736,7 +721,6 @@ After adding the images to the repository, the screenshots can be displayed toge
 ### Customer Report
 
 ![Customer Report](assets/images/customer_report.png)
-```
 
 ---
 
